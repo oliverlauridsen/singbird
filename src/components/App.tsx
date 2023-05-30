@@ -2,13 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import singingBird from "../img/singing-bird.svg";
 import { Link } from "react-router-dom";
-import StartScreen from "./StartScreen";
 
 function App() {
 	return (
 		<Wrapper>
 			<div className='header'>singbird</div>
-			<StartScreen />
+			<div className='main-content'>
+				<img src={singingBird} alt='Bird singing' />
+				<h1>
+					Welcome to your <br /> personal pitch tutor
+				</h1>
+				<p>
+					Start guiding your practise towards <br /> becoming a better musician
+				</p>
+				<Link className='main-button' to='/start'>
+					START SINGING JOURNEY
+				</Link>
+			</div>
 		</Wrapper>
 	);
 }

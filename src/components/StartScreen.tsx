@@ -1,5 +1,3 @@
-import React from "react";
-import styled from "styled-components";
 import singingBird from "../img/singing-bird.svg";
 import { Link } from "react-router-dom";
 
