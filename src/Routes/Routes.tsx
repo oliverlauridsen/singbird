@@ -1,15 +1,15 @@
 import "../styles/index.css";
-import App from "../components/Welcome/App";
+import App from "../components/welcome/App";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
-import LoginOrRegister from "../components/Welcome/LoginOrRegister";
+import LoginOrRegister from "../components/welcome/LoginOrRegister";
 import ProtectedRoute from "./ProtectedRoute";
-import MainNavigation from "../components/MainNavigation/MainNavigation";
-import SecondarySideBar from "../components/SecondaryNavigation/SecondarySidebar";
-import Review from "../components/Review/Review";
-import Settings from "../components/Settings/Settings";
-import Profile from "../components/Profile/Profile";
-import Learn from "../components/Learn/Learn";
+import MainNavigation from "../components/mainNavigation/MainNavigation";
+import SecondarySideBar from "../components/secondaryNavigation/SecondarySidebar";
+import Review from "../components/review/Review";
+import Settings from "../components/settings/Settings";
+import Profile from "../components/profile/Profile";
+import Learn from "../components/learn/Learn";
 import styled from "styled-components";
 
 const StyledGridBox = styled.section`
