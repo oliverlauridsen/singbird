@@ -117,6 +117,14 @@ const StyledMainNav = styled.div`
 			margin-bottom: 0;
 		}
 
+		&:hover {
+			color: white;
+			padding: 10px 15px;
+			background-color: #783da6;
+			border-radius: 15px;
+			display: flex;
+		}
+
 		span {
 			margin: auto auto auto 20px;
 		}

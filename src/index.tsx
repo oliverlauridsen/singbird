@@ -17,7 +17,7 @@ import Learn from "./components/Learn";
 
 const StyledGridBox = styled.section`
 	display: grid;
-	grid-template-columns: 15% 60% 25%;
+	grid-template-columns: 15% 65% 20%;
 	min-height: 100vh;
 `;
 

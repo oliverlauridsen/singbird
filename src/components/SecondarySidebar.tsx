@@ -1,9 +1,25 @@
 import styled from "styled-components";
+import account from "../img/account.svg";
+import notification from "../img/notification.svg";
+import flame from "../img/flame.svg";
+import UnlockPremium from "./UnlockPremium";
+import DailyQuests from "./DailyQuests";
 
 export default function SecondarySideBar() {
 	return (
 		<StyledMainNav>
-			<div>Secondary bar</div>
+			<div className='top-bar-wrapper'>
+				<span>
+					<img className='account-image' src={account} alt='' />
+					<p> Oliver Lauridsen </p>
+				</span>
+				<img src={notification} alt='' />
+			</div>
+			<div className='streak-wrapper'>
+				<img src={flame} alt='' /> 0
+			</div>
+			<UnlockPremium />
+			<DailyQuests />
 		</StyledMainNav>
 	);
 }
@@ -16,56 +32,45 @@ const StyledMainNav = styled.div`
 	position: relative;
 	padding: 20px;
 	border-left: 2px solid #d0ccd5;
-	justify-content: space-between;
+	background-color: #f9f4fc;
 
-	.logo {
-		font-size: 30px;
-		font-weight: 700;
-		color: white;
-		cursor: pointer;
+	.account-image {
+		width: 30px;
+		height: 30px;
 	}
 
-	ul {
-		padding: 0;
-		padding-top: 30px;
-		margin: 0;
-		list-style: none;
+	.top-bar-wrapper {
 		display: flex;
-		flex-direction: column;
-	}
-
-	.active {
-		color: white;
-		padding: 10px 15px;
-		background-color: #783da6;
-		border-radius: 15px;
-		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 
 		span {
-			margin: auto auto auto 20px;
+			align-items: center;
+			display: flex;
+			flex-direction: row;
 		}
+
+		p {
+			margin: 0 0 0 10px;
+			font-weight: 600;
+		}
+	}
+
+	.streak-wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 20px;
+		font-weight: 600;
+		border: 2px solid #d0ccd5;
+		width: fit-content;
+		padding: 5px 10px;
+		color: #cbc3ca;
+		border-radius: 5px;
 
 		img {
-			filter: brightness(5);
-		}
-	}
-
-	a {
-		font-weight: 700;
-		color: #8b73a4;
-		text-decoration: none;
-		padding: 10px 15px;
-		margin: 0;
-		list-style: none;
-		margin-bottom: 20px;
-		display: flex;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-
-		span {
-			margin: auto auto auto 20px;
+			margin-right: 10px;
 		}
 	}
 `;
