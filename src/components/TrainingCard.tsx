@@ -16,7 +16,7 @@ const StyledTrainingCard = styled.div`
 	align-items: center;
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 	width: fit-content;
-	min-width: 250px;
+	min-width: 30%;
 	height: fit-content;
 	padding: 10px;
 	border-radius: 20px;
