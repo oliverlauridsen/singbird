@@ -14,15 +14,15 @@ interface StyledPageHeaderProps {
 	color: string;
 }
 
-export default function PageHeader({
-	color,
-	firstImage,
-	heading,
-	body,
-	secondImage,
-	optionalWarmupText,
-	optionalButton,
-}: PageHeaderProps) {
+export default function PageHeader(props: PageHeaderProps) {
+	const { color } = props;
+	const { heading } = props;
+	const { body } = props;
+	const { firstImage } = props;
+	const { secondImage } = props;
+	const { optionalWarmupText } = props;
+	const { optionalButton } = props;
+
 	return (
 		<StyledPageHeader color={color}>
 			<div>
@@ -53,14 +53,17 @@ const StyledPageHeader = styled.div<StyledPageHeaderProps>`
 		font-size: 25px;
 		margin: 0 0 10px 0;
 	}
+
 	.bolded {
 		font-weight: 700;
 		margin: auto;
 		text-align: center;
 	}
+
 	p {
 		margin: 0;
 	}
+
 	div {
 		display: flex;
 		flex-direction: column;

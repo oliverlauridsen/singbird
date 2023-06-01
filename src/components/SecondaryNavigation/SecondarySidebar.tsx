@@ -8,18 +8,20 @@ import DailyQuests from "./DailyQuests";
 export default function SecondarySideBar() {
 	return (
 		<StyledMainNav>
-			<div className='top-bar-wrapper'>
-				<span>
-					<img className='account-image' src={account} alt='' />
-					<p> Oliver Lauridsen </p>
-				</span>
-				<img src={notification} alt='' />
+			<div className='main-content-wrapper'>
+				<div className='top-bar-wrapper'>
+					<span>
+						<img className='account-image' src={account} alt='' />
+						<p> Oliver Lauridsen </p>
+					</span>
+					<img src={notification} alt='' />
+				</div>
+				<div className='streak-wrapper'>
+					<img src={flame} alt='' /> 0
+				</div>
+				<UnlockPremium />
+				<DailyQuests />
 			</div>
-			<div className='streak-wrapper'>
-				<img src={flame} alt='' /> 0
-			</div>
-			<UnlockPremium />
-			<DailyQuests />
 		</StyledMainNav>
 	);
 }
@@ -30,10 +32,15 @@ const StyledMainNav = styled.div`
 	flex-direction: column;
 	width: 100%;
 	position: relative;
-	padding: 20px;
 	border-left: 2px solid #d0ccd5;
 	background-color: #f9f4fc;
 
+	.main-content-wrapper {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		padding: 20px;
+	}
 	.account-image {
 		width: 30px;
 		height: 30px;

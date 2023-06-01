@@ -19,7 +19,7 @@ const StyledTrainingLevel = styled.div`
 	width: fit-content;
 	min-width: 30%;
 	height: fit-content;
-	padding: 10px;
+	padding: 20px;
 	border-radius: 20px;
 
 	img {

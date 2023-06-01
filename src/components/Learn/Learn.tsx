@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PageHeader from "./PageHeader";
 import manPlayingGuitar from "../../img/man-playing-guitar.svg";
 import Continue from "./Continue";
+import ChooseTrainingType from "./ChooseTrainingType";
 
 export default function Learn() {
 	return (
@@ -16,6 +17,7 @@ export default function Learn() {
 				optionalWarmupText="Let's get you warmed up!"
 			/>
 			<Continue />
+			<ChooseTrainingType />
 		</MainContent>
 	);
 }

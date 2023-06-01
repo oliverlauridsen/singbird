@@ -10,51 +10,54 @@ import logout from "../../img/logout.svg";
 export default function MainNavigation() {
 	return (
 		<StyledMainNav>
-			<div>
-				<div className='logo'>singbird</div>
-				<ul>
-					<NavLink
-						to='/'
-						className={({ isActive, isPending }) =>
-							isPending ? "pending" : isActive ? "active" : ""
-						}>
-						<img src={house} alt='' />
-						<span> Learn </span>
-					</NavLink>
-					<NavLink
-						to='review'
-						className={({ isActive, isPending }) =>
-							isPending ? "pending" : isActive ? "active" : ""
-						}>
-						<img src={mic} alt='' />
-						<span> Review </span>
-					</NavLink>
-					<NavLink
-						to='profile'
-						className={({ isActive, isPending }) =>
-							isPending ? "pending" : isActive ? "active" : ""
-						}>
-						<img src={person} alt='' />
-						<span> Profile </span>
-					</NavLink>
-					<NavLink
-						to='settings'
-						className={({ isActive, isPending }) =>
-							isPending ? "pending" : isActive ? "active" : ""
-						}>
-						<img src={settings} alt='' />
-						<span> Settings </span>
-					</NavLink>
-				</ul>
+			<div className='content-wrapper'>
+				<div>
+					<div className='logo'>singbird</div>
+					<ul>
+						<NavLink
+							to='/'
+							className={({ isActive, isPending }) =>
+								isPending ? "pending" : isActive ? "active" : ""
+							}>
+							<img src={house} alt='' />
+							<span> Learn </span>
+						</NavLink>
+						<NavLink
+							to='review'
+							className={({ isActive, isPending }) =>
+								isPending ? "pending" : isActive ? "active" : ""
+							}>
+							<img src={mic} alt='' />
+							<span> Review </span>
+						</NavLink>
+						<NavLink
+							to='profile'
+							className={({ isActive, isPending }) =>
+								isPending ? "pending" : isActive ? "active" : ""
+							}>
+							<img src={person} alt='' />
+							<span> Profile </span>
+						</NavLink>
+						<NavLink
+							to='settings'
+							className={({ isActive, isPending }) =>
+								isPending ? "pending" : isActive ? "active" : ""
+							}>
+							<img src={settings} alt='' />
+							<span> Settings </span>
+						</NavLink>
+					</ul>
+				</div>
+
+				<NavLink
+					to='logout'
+					className={({ isActive, isPending }) =>
+						isPending ? "pending" : isActive ? "active" : ""
+					}>
+					<img src={logout} alt='' />
+					<span> Log out </span>
+				</NavLink>
 			</div>
-			<NavLink
-				to='logout'
-				className={({ isActive, isPending }) =>
-					isPending ? "pending" : isActive ? "active" : ""
-				}>
-				<img src={logout} alt='' />
-				<span> Log out </span>
-			</NavLink>
 		</StyledMainNav>
 	);
 }
@@ -69,7 +72,13 @@ const StyledMainNav = styled.div`
 	left: 0;
 	padding: 20px;
 
-	justify-content: space-between;
+	.content-wrapper {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 95%;
+	}
 
 	.logo {
 		font-size: 30px;
@@ -89,7 +98,7 @@ const StyledMainNav = styled.div`
 
 	.active {
 		color: white;
-		padding: 10px 15px;
+		padding: 10px 50px 10px 15px;
 		background-color: #783da6;
 		border-radius: 15px;
 		display: flex;
@@ -107,7 +116,7 @@ const StyledMainNav = styled.div`
 		font-weight: 700;
 		color: #8b73a4;
 		text-decoration: none;
-		padding: 10px 15px;
+		padding: 10px 50px 10px 15px;
 		margin: 0;
 		list-style: none;
 		margin-bottom: 20px;
@@ -119,7 +128,7 @@ const StyledMainNav = styled.div`
 
 		&:hover {
 			color: white;
-			padding: 10px 15px;
+			padding: 10px 50px 10px 15px;
 			background-color: #783da6;
 			border-radius: 15px;
 			display: flex;

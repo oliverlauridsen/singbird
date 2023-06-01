@@ -4,13 +4,13 @@ import TrainingCard from "./TrainingCard";
 import arrowRight from "../../img/arrow-right.svg";
 import TrainingLevel from "./TrainingLevel";
 import { secondarySharedButtonStyles } from "../../styles/sharedButtonStyles";
-
+import pitch from "../../img/pitch.svg";
 export default function Continue() {
 	return (
 		<StyledContinue>
 			<h2>Continue where you left off?</h2>
 			<div className='content-wrapper'>
-				<TrainingCard />
+				<TrainingCard icon={pitch} title='Pitch' />
 				<img className='arrow-right' src={arrowRight} alt='' />
 				<TrainingLevel />
 				<button>GO</button>
