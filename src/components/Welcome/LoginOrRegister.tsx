@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import login from "../img/login.svg";
-import register from "../img/register.svg";
+import login from "../../img/login.svg";
+import register from "../../img/register.svg";
 import { Link } from "react-router-dom";
 
 export default function LoginOrRegister() {

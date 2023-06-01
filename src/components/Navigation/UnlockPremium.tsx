@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { sharedButtonStyles } from "../styles/sharedButtonStyles";
+import { sharedButtonStyles } from "../../styles/sharedButtonStyles";
 
 export default function UnlockPremium() {
 	return (

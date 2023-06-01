@@ -1,11 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import PageHeader from "./PageHeader";
-import manPlayingGuitar from "../img/man-playing-guitar.svg";
+import manPlayingGuitar from "../../img/man-playing-guitar.svg";
 import Continue from "./Continue";
-import aubio from "aubiojs";
-
-console.log(aubio);
 
 export default function Learn() {
 	return (

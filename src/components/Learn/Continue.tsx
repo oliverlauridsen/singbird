@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import TrainingCard from "./TrainingCard";
-import arrowRight from "../img/arrow-right.svg";
+import arrowRight from "../../img/arrow-right.svg";
 import TrainingLevel from "./TrainingLevel";
-import { secondarySharedButtonStyles } from "../styles/sharedButtonStyles";
+import { secondarySharedButtonStyles } from "../../styles/sharedButtonStyles";
 
 export default function Continue() {
 	return (

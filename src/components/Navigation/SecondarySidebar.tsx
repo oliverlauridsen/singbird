@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import account from "../img/account.svg";
-import notification from "../img/notification.svg";
-import flame from "../img/flame.svg";
+import account from "../../img/account.svg";
+import notification from "../../img/notification.svg";
+import flame from "../../img/flame.svg";
 import UnlockPremium from "./UnlockPremium";
 import DailyQuests from "./DailyQuests";
 

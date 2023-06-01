@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { sharedButtonStyles } from "../styles/sharedButtonStyles";
+import { sharedButtonStyles } from "../../styles/sharedButtonStyles";
 interface PageHeaderProps {
 	color: string;
 	firstImage?: string;

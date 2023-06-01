@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import pitch from "../img/pitch.svg";
-export default function TrainingCard() {
+import pitch from "../../img/pitch.svg";
+
+export default function TrainingLevel() {
 	return (
-		<StyledTrainingCard>
+		<StyledTrainingLevel>
 			<img src={pitch} alt='' />
-			<p>Pitch</p>
-		</StyledTrainingCard>
+			<p>Lesson 3</p>
+		</StyledTrainingLevel>
 	);
 }
 
-const StyledTrainingCard = styled.div`
+const StyledTrainingLevel = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;

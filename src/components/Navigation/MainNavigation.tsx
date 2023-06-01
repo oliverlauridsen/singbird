@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import house from "../img/house.svg";
-import mic from "../img/mic.svg";
-import person from "../img/person.svg";
-import settings from "../img/settings.svg";
-import logout from "../img/logout.svg";
+import house from "../../img/house.svg";
+import mic from "../../img/mic.svg";
+import person from "../../img/person.svg";
+import settings from "../../img/settings.svg";
+import logout from "../../img/logout.svg";
 
 export default function MainNavigation() {
 	return (
