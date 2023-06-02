@@ -31,10 +31,14 @@ export default function PageHeader(props: PageHeaderProps) {
 			</div>
 			{firstImage && <img src={firstImage} alt='firstImage' />}
 			{secondImage && <img src={secondImage} alt='secondImage' />}
-			<div>
-				{optionalWarmupText && <p className='bolded'> {optionalWarmupText} </p>}
-				{optionalButton && <button> {optionalButton} </button>}
-			</div>
+			{optionalWarmupText && (
+				<div>
+					{optionalWarmupText && (
+						<p className='bolded'> {optionalWarmupText} </p>
+					)}
+					{optionalButton && <button> {optionalButton} </button>}
+				</div>
+			)}
 		</StyledPageHeader>
 	);
 }
@@ -67,7 +71,7 @@ const StyledPageHeader = styled.div<StyledPageHeaderProps>`
 	div {
 		display: flex;
 		flex-direction: column;
-		margin: auto;
+		margin: auto 0 auto 30px;
 	}
 
 	button {

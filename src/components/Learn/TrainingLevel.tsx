@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import pitch from "../../img/pitch.svg";
+interface TrainingLevelProps {
+	icon: string;
+	lesson: number;
+}
 
-export default function TrainingLevel() {
+export default function TrainingLevel(props: TrainingLevelProps) {
+	const { icon } = props;
+	const { lesson } = props;
+
 	return (
 		<StyledTrainingLevel>
-			<img src={pitch} alt='' />
-			<p>Lesson 3</p>
+			<img src={icon} alt='' />
+			<p>Lesson {lesson}</p>
 		</StyledTrainingLevel>
 	);
 }
@@ -21,6 +27,7 @@ const StyledTrainingLevel = styled.div`
 	height: fit-content;
 	padding: 20px;
 	border-radius: 20px;
+	cursor: pointer;
 
 	img {
 		margin-right: 20px;

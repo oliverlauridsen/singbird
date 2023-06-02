@@ -1,24 +1,32 @@
-import React from "react";
 import styled from "styled-components";
+import questOne from "../../img/quest-1.svg";
+import questTwo from "../../img/quest-2.svg";
+import questThree from "../../img/quest-3.svg";
+import diamond from "../../img/diamond.svg";
+import { StyledProgressBar } from "./ProgressBar";
 
 export default function DailyQuests() {
 	return (
 		<StyledDailyQuests>
 			<h2> Daily Quests </h2>
+			<p> Finish 1 exercise</p>
 			<div className='daily-quest'>
-				<p> 1 </p>
-				<p> ========= </p>
-				<p> ICON</p>
+				<img src={questOne} alt='' />
+				<StyledProgressBar progressBarPercentage={50} />
+				<img src={diamond} alt='' />
 			</div>
+			<p> Score 90% or higher </p>
 			<div className='daily-quest'>
-				<p> 2 </p>
-				<p> ========= </p>
-				<p> ICON</p>
+				<img src={questTwo} alt='' />
+				<StyledProgressBar progressBarPercentage={20} />
+				<img src={diamond} alt='' />
 			</div>
+			<p>Finish 3 exercises</p>
+
 			<div className='daily-quest'>
-				<p> 3 </p>
-				<p> ========= </p>
-				<p> ICON</p>
+				<img src={questThree} alt='' />
+				<StyledProgressBar progressBarPercentage={70} />
+				<img src={diamond} alt='' />
 			</div>
 		</StyledDailyQuests>
 	);
@@ -32,10 +40,16 @@ const StyledDailyQuests = styled.div`
 	display: flex;
 	flex-direction: column;
 
+	p {
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 700;
+	}
+
 	.daily-quest {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-between;
+		gap: 10px;
 	}
 `;

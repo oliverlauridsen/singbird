@@ -4,7 +4,6 @@ import PageHeader from "./PageHeader";
 import manPlayingGuitar from "../../img/man-playing-guitar.svg";
 import Continue from "./Continue";
 import ChooseTrainingType from "./ChooseTrainingType";
-
 export default function Learn() {
 	return (
 		<MainContent>
