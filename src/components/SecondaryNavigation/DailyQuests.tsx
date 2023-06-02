@@ -9,19 +9,19 @@ export default function DailyQuests() {
 	return (
 		<StyledDailyQuests>
 			<h2> Daily Quests </h2>
-			<p> Finish 1 exercise</p>
+			{/* <p> Finish 1 exercise</p> */}
 			<div className='daily-quest'>
 				<img src={questOne} alt='' />
 				<StyledProgressBar progressBarPercentage={50} />
 				<img src={diamond} alt='' />
 			</div>
-			<p> Score 90% or higher </p>
+			{/* <p> Score 90% or higher </p> */}
 			<div className='daily-quest'>
 				<img src={questTwo} alt='' />
 				<StyledProgressBar progressBarPercentage={20} />
 				<img src={diamond} alt='' />
 			</div>
-			<p>Finish 3 exercises</p>
+			{/* <p>Finish 3 exercises</p> */}
 
 			<div className='daily-quest'>
 				<img src={questThree} alt='' />
@@ -51,5 +51,6 @@ const StyledDailyQuests = styled.div`
 		flex-direction: row;
 		align-items: center;
 		gap: 10px;
+		margin-top: 20px;
 	}
 `;
