@@ -3,9 +3,17 @@ import { trainingCardData } from "./ChooseTrainingType";
 import PageHeader from "./PageHeader";
 import manPlayingGuitar from "../../img/man-playing-guitar.svg";
 import styled from "styled-components";
+import singleWhiteNote from "../../img/singleWhiteNote.svg";
+import whiteLock from "../../img/whiteLock.svg";
+
 import arrowBack from "../../img/arrow-back.svg";
+
 import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
+
+interface StyledMainContent {
+	color: string;
+}
 
 export default function LevelsMap(): JSX.Element {
 	const { trainingType } = useParams();
@@ -19,25 +27,55 @@ export default function LevelsMap(): JSX.Element {
 
 	useEffect(() => {
 		const svgElement = svgRef.current;
-		const buttonElement = document.getElementById("myButton");
 
 		if (svgElement) {
-			const startPoint = svgElement.getPointAtLength(0);
-			setStartingPoint(startPoint);
+			let startingPoint = svgElement.getPointAtLength(0);
+			startingPoint.y -= 40;
+			startingPoint.x -= 40;
+
+			setStartingPoint(startingPoint);
 			const totalLength = svgElement.getTotalLength();
-			const halfWay = svgElement.getPointAtLength(totalLength / 2);
 
 			// Create an array and store 10 points along the path at equal intervals by dividing the total length by 10 and getting the point at each interval along the path
-			const points = Array.from({ length: 10 }, (_, i) =>
-				svgElement.getPointAtLength((i + 1) * (totalLength / 10))
+			const points = Array.from({ length: 14 }, (_, i) =>
+				svgElement.getPointAtLength((i + 1) * (totalLength / 14))
 			);
 
-			setPoints(points);
+			let offsetPoints = points.map((point) => {
+				return new DOMPoint(point.x - 40, point.y - 40);
+			});
+
+			setPoints(offsetPoints);
 		}
 	}, []);
 
+	const levelsList = points?.map((point, index) => {
+		// MAKE LOGIC HERE THAT CHECKS IF THE LEVEL IS UNLOCKED OR NOT
+		let unlocked = false;
+
+		return (
+			<Link
+				key={index}
+				to={`/training-type/${trainingType}/level-${index + 2}`}>
+				<foreignObject
+					key={index}
+					width='85'
+					height='85'
+					x={point.x}
+					y={point.y}>
+					<button style={{ width: "100%", height: "100%" }}>
+						{unlocked ? (
+							<img src={singleWhiteNote} alt='' />
+						) : (
+							<img src={whiteLock} alt='' />
+						)}
+					</button>
+				</foreignObject>
+			</Link>
+		);
+	});
 	return (
-		<MainContent>
+		<MainContent color={trainingTypeData!.color}>
 			<Link className='back-wrapper' to='/'>
 				<img src={arrowBack} alt='' />
 				<p> Back </p>
@@ -53,72 +91,34 @@ export default function LevelsMap(): JSX.Element {
 			</div>
 			<div className='levels-map-container'>
 				<svg
-					viewBox='0 0 498 784'
+					viewBox='0 0 817 784'
 					fill='none'
 					xmlns='http://www.w3.org/2000/svg'>
 					<path
-						ref={svgRef}
-						d='M239.628 8.39941H92.956C46.0361 8.39941 8 46.4355 8 93.3555V93.3555C8 140.275 46.0361 178.312 92.9561 178.312H389.848C445.076 178.312 489.848 223.15 489.848 278.378V278.378C489.848 333.607 445.076 378.445 389.848 378.445H104.373C51.1477 378.445 8 421.593 8 474.818V474.818C8 528.044 51.1477 571.191 104.373 571.191H389.848C445.076 571.191 489.848 615.963 489.848 671.191V676.382C489.848 731.611 445.076 776.382 389.848 776.382H17.9271'
+						d='M393.047 8H92.958C46.0369 8 8 46.037 8 92.958V92.958C8 139.879 46.037 177.916 92.958 177.916H709C764.228 177.916 809 222.757 809 277.985V277.985C809 333.214 764.228 378.054 709 378.054H104.375C51.1487 378.054 8 421.203 8 474.429V474.429C8 527.656 51.1487 570.805 104.375 570.805H709C764.228 570.805 809 615.576 809 670.805V676C809 731.228 764.228 776 709 776H24.5024'
 						stroke='#EBE4FE'
 						strokeWidth='15'
+						ref={svgRef}
 					/>
-					<foreignObject
-						width='40'
-						height='40'
-						x={startingPoint?.x}
-						y={startingPoint?.y}>
-						<button style={{ width: "100%", height: "100%" }}>Click me</button>
-					</foreignObject>
-
-					<foreignObject
-						width='40'
-						height='40'
-						x={points?.[0].x}
-						y={points?.[0].y}>
-						<button style={{ width: "100%", height: "100%" }}>Click me</button>
-					</foreignObject>
-					<foreignObject
-						width='40'
-						height='40'
-						x={points?.[1].x}
-						y={points?.[1].y}>
-						<button style={{ width: "100%", height: "100%" }}>Click me</button>
-					</foreignObject>
-					<foreignObject
-						width='40'
-						height='40'
-						x={points?.[2].x}
-						y={points?.[2].y}>
-						<button style={{ width: "100%", height: "100%" }}>Click me</button>
-					</foreignObject>
-					<foreignObject
-						width='40'
-						height='40'
-						x={points?.[3].x}
-						y={points?.[3].y}>
-						<button style={{ width: "100%", height: "100%" }}>Click me</button>
-					</foreignObject>
-					<foreignObject
-						width='40'
-						height='40'
-						x={points?.[4].x}
-						y={points?.[4].y}>
-						<button style={{ width: "100%", height: "100%" }}>Click me</button>
-					</foreignObject>
-					<foreignObject
-						width='40'
-						height='40'
-						x={points?.[5].x}
-						y={points?.[5].y}>
-						<button style={{ width: "100%", height: "100%" }}>Click me</button>
-					</foreignObject>
+					<Link key={1} to={`/training-type/${trainingType}/level-${1}`}>
+						<foreignObject
+							width='85'
+							height='85'
+							x={startingPoint?.x}
+							y={startingPoint?.y}>
+							<button style={{ width: "100%", height: "100%" }}>
+								<img src={singleWhiteNote} alt='' />
+							</button>
+						</foreignObject>
+					</Link>
+					{levelsList}
 				</svg>
 			</div>
 		</MainContent>
 	);
 }
 
-const MainContent = styled.section`
+const MainContent = styled.section<StyledMainContent>`
 	width: 100%;
 	padding: 50px 75px;
 	background-color: #f9f4fc;
@@ -147,8 +147,36 @@ const MainContent = styled.section`
 		display: flex;
 		justify-content: center;
 
-		img {
-			margin: auto;
+		svg {
+			overflow: visible;
+			width: 100%;
+			height: auto;
+		}
+
+		button {
+			background-color: ${(props) => props.color};
+			border-radius: 50%;
+			padding: 17.5px;
+			border: 7.5px solid #ebe4fe;
+			width: 100px;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+
+			&:hover {
+				filter: brightness(95%);
+
+				img {
+					filter: brightness(95%);
+				}
+			}
 		}
 	}
 `;

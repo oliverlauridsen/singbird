@@ -12,6 +12,7 @@ import Profile from "../components/profile/Profile";
 import Learn from "../components/learn/Learn";
 import styled from "styled-components";
 import LevelsMap from "../components/learn/LevelsMap";
+import Level from "../components/learn/Level";
 
 const StyledGridBox = styled.section`
 	display: grid;
@@ -71,5 +72,9 @@ export const router = createBrowserRouter([
 				element: <Profile />,
 			},
 		],
+	},
+	{
+		path: "/training-type/:trainingType/:id",
+		element: <Level />,
 	},
 ]);
