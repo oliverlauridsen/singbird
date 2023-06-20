@@ -31,7 +31,7 @@ const StyledPlayer = styled.div`
 
 		.progress-bar {
 			background-color: #6f7395;
-			width: 20%;
+			width: 2%;
 			border-radius: 10px;
 			display: flex;
 			justify-content: flex-end;

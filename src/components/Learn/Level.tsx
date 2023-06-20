@@ -2,15 +2,22 @@ import styled from "styled-components";
 import linesBackground from "../../img/linesBackground.svg";
 import Player from "./Player";
 import trophy from "../../img/trophy.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import PauseScreen from "./PauseScreen";
 
 export default function Level() {
+	const [show, setShow] = useState(false);
+
 	useEffect(() => {
 		document.addEventListener(
 			"keydown",
-			(e: any) => e.key === "Escape" && alert("Escape")
+			(e: any) => e.key === "Escape" && setShow(!show)
 		);
-	}, []);
+	}, [show]);
+
+	const resume = () => {
+		setShow(!show);
+	};
 
 	return (
 		<StyledLevel>
@@ -18,9 +25,9 @@ export default function Level() {
 			<div className='logo'>singbird</div>
 			<div className='score'>
 				<img src={trophy} alt='' />
-				Your best: 100
+				Your best: 0
 			</div>
-
+			<PauseScreen show={show} handleClick={resume} />
 			<Player />
 		</StyledLevel>
 	);
