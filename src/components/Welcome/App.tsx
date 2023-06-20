@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import singingBird from "../../img/singing-bird.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function App() {
 	return (
@@ -15,9 +15,9 @@ function App() {
 				<p>
 					Start guiding your practise towards <br /> becoming a better musician
 				</p>
-				<Link className='main-button' to='/start'>
+				<NavLink className='main-button' to='/start'>
 					START SINGING JOURNEY
-				</Link>
+				</NavLink>
 			</div>
 		</Wrapper>
 	);

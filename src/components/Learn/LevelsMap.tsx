@@ -8,8 +8,8 @@ import whiteLock from "../../img/whiteLock.svg";
 
 import arrowBack from "../../img/arrow-back.svg";
 
-import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 interface StyledMainContent {
 	color: string;
@@ -18,6 +18,7 @@ interface StyledMainContent {
 export default function LevelsMap(): JSX.Element {
 	const { trainingType } = useParams();
 	const svgRef = useRef<SVGPathElement>(null);
+	const nextLevelToCompleteRef = useRef<SVGForeignObjectElement>(null);
 	const [startingPoint, setStartingPoint] = useState<DOMPoint | null>(null);
 	const [points, setPoints] = useState<DOMPoint[] | null>(null);
 
@@ -27,7 +28,6 @@ export default function LevelsMap(): JSX.Element {
 
 	useEffect(() => {
 		const svgElement = svgRef.current;
-
 		if (svgElement) {
 			let startingPoint = svgElement.getPointAtLength(0);
 			startingPoint.y -= 40;
@@ -53,8 +53,8 @@ export default function LevelsMap(): JSX.Element {
 		// MAKE LOGIC HERE THAT CHECKS IF THE LEVEL IS UNLOCKED OR NOT
 		let unlocked = false;
 
-		return (
-			<Link
+		return unlocked ? (
+			<NavLink
 				key={index}
 				to={`/training-type/${trainingType}/level-${index + 2}`}>
 				<foreignObject
@@ -71,15 +71,43 @@ export default function LevelsMap(): JSX.Element {
 						)}
 					</button>
 				</foreignObject>
-			</Link>
+			</NavLink>
+		) : (
+			<foreignObject
+				key={index}
+				width='85'
+				height='85'
+				x={point.x}
+				y={point.y}
+				onClick={() => triggerAnimation()}>
+				<button style={{ width: "100%", height: "100%" }}>
+					{unlocked ? (
+						<img src={singleWhiteNote} alt='' />
+					) : (
+						<img src={whiteLock} alt='' />
+					)}
+				</button>
+			</foreignObject>
 		);
 	});
+
+	const triggerAnimation = () => {
+		if (nextLevelToCompleteRef.current) {
+			nextLevelToCompleteRef.current.classList.add("large");
+
+			// Remove the animation class after the animation is completed
+			setTimeout(() => {
+				nextLevelToCompleteRef.current?.classList.remove("large");
+			}, 500);
+		}
+	};
+
 	return (
 		<MainContent color={trainingTypeData!.color}>
-			<Link className='back-wrapper' to='/'>
+			<NavLink className='back-wrapper' to='/'>
 				<img src={arrowBack} alt='' />
 				<p> Back </p>
-			</Link>
+			</NavLink>
 			<div className='header-wrapper'>
 				<img src={trainingTypeData?.icon} alt='' />
 				<PageHeader
@@ -100,8 +128,10 @@ export default function LevelsMap(): JSX.Element {
 						strokeWidth='15'
 						ref={svgRef}
 					/>
-					<Link key={1} to={`/training-type/${trainingType}/level-${1}`}>
+					<NavLink key={1} to={`/training-type/${trainingType}/level-${1}`}>
 						<foreignObject
+							ref={nextLevelToCompleteRef}
+							id='starting-point'
 							width='85'
 							height='85'
 							x={startingPoint?.x}
@@ -110,7 +140,7 @@ export default function LevelsMap(): JSX.Element {
 								<img src={singleWhiteNote} alt='' />
 							</button>
 						</foreignObject>
-					</Link>
+					</NavLink>
 					{levelsList}
 				</svg>
 			</div>
@@ -155,6 +185,7 @@ const MainContent = styled.section<StyledMainContent>`
 
 		button {
 			background-color: ${(props) => props.color};
+			transition: all 0.5s ease;
 			border-radius: 50%;
 			padding: 17.5px;
 			border: 7.5px solid #ebe4fe;
@@ -177,6 +208,15 @@ const MainContent = styled.section<StyledMainContent>`
 					filter: brightness(95%);
 				}
 			}
+		}
+	}
+
+	.large {
+		button {
+			background-color: ${(props) => props.color};
+			transition: all 0.5s ease;
+			border: 0.5px solid ${(props) => props.color};
+			padding: 30px;
 		}
 	}
 `;

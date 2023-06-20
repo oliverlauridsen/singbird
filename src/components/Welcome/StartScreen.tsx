@@ -1,5 +1,5 @@
+import { NavLink } from "react-router-dom";
 import singingBird from "../img/singing-bird.svg";
-import { Link } from "react-router-dom";
 
 export default function StartScreen() {
 	return (
@@ -11,9 +11,9 @@ export default function StartScreen() {
 			<p>
 				Start guiding your practise towards <br /> becoming a better musician
 			</p>
-			<Link className='main-button' to='/start'>
+			<NavLink className='main-button' to='/start'>
 				START SINGING JOURNEY
-			</Link>
+			</NavLink>
 		</div>
 	);
 }

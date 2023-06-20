@@ -7,7 +7,7 @@ import rangeExtension from "../../img/range-extension.svg";
 import scales from "../../img/scales.svg";
 import song from "../../img/song.svg";
 import breathSupport from "../../img/breath-support.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const trainingCardData = [
 	{
@@ -71,14 +71,14 @@ export default function ChooseTrainingType() {
 			<h2>Choose training type</h2>
 			<div className='training-types-wrapper'>
 				{trainingCardData.map((cardData) => (
-					<Link to={`/training-type/${cardData.slug}`} key={cardData.id}>
+					<NavLink to={`/training-type/${cardData.slug}`} key={cardData.id}>
 						<TrainingCard
 							slug={cardData.slug}
 							title={cardData.title}
 							description={cardData.description}
 							icon={cardData.icon}
 						/>
-					</Link>
+					</NavLink>
 				))}
 			</div>
 		</MainContent>

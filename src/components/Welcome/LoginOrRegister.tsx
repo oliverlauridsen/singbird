@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import login from "../../img/login.svg";
 import register from "../../img/register.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function LoginOrRegister() {
 	return (
@@ -14,9 +14,9 @@ export default function LoginOrRegister() {
 						<img src={login} alt='' />
 						<h1>Already have an account?</h1>
 						<p>Pick up where you left off.</p>
-						<Link className='main-button' to='/login'>
+						<NavLink className='main-button' to='/login'>
 							LOG IN
-						</Link>
+						</NavLink>
 					</span>
 				</div>
 				<div>
@@ -24,9 +24,9 @@ export default function LoginOrRegister() {
 						<img src={register} alt='' />
 						<h1>New to the app?</h1>
 						<p>Get started with your efficient practise now.</p>
-						<Link className='main-button' to='/register'>
+						<NavLink className='main-button' to='/register'>
 							REGISTER
-						</Link>
+						</NavLink>
 					</span>
 				</div>
 			</div>

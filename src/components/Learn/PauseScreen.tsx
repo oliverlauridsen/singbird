@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import close from "../../img/close.svg";
 import play from "../../img/play.svg";
 import restart from "../../img/restart.svg";
+import { NavLink } from "react-router-dom";
 interface Props {
 	show: boolean;
 	handleClick: () => void;
@@ -27,12 +27,12 @@ export default function PauseScreen(props: Props) {
 							<img src={restart} alt='' />
 							Restart
 						</button>
-						<Link className='back-wrapper' to='/'>
+						<NavLink className='back-wrapper' to='/'>
 							<button>
 								<img src={close} alt='' />
 								Quit
 							</button>
-						</Link>
+						</NavLink>
 					</div>
 				</section>
 			</StyledModal>
@@ -120,7 +120,7 @@ const StyledModal = styled.div`
 					transition: 0.2s ease-in-out;
 					width: auto;
 					height: 25px;
-					margin-right: 20px;
+					margin-right: 15px;
 				}
 			}
 		}
