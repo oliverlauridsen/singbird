@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import arrowBack from "../../img/arrow-back.svg";
-
+import close from "../../img/close.svg";
+import play from "../../img/play.svg";
+import restart from "../../img/restart.svg";
 interface Props {
 	show: boolean;
 	handleClick: () => void;
@@ -14,15 +15,24 @@ export default function PauseScreen(props: Props) {
 	return (
 		show && (
 			<StyledModal>
-				<Link className='back-wrapper' to='/'>
-					<img src={arrowBack} alt='' />
-					<p> Quit? </p>
-				</Link>
+				<div className='logo'>singbird</div>
 				<section className='modal-main'>
 					<h1>Pause menu</h1>
 					<div>
-						<button onClick={handleClick}>Resume</button>
-						<button>Restart</button>
+						<button onClick={handleClick}>
+							<img src={play} alt='' />
+							Play
+						</button>
+						<button>
+							<img src={restart} alt='' />
+							Restart
+						</button>
+						<Link className='back-wrapper' to='/'>
+							<button>
+								<img src={close} alt='' />
+								Quit
+							</button>
+						</Link>
 					</div>
 				</section>
 			</StyledModal>
@@ -43,17 +53,15 @@ const StyledModal = styled.div`
 	backdrop-filter: blur(8px);
 	z-index: 3;
 	display: flex;
+	transition: 0.5s;
 
 	.back-wrapper {
 		display: flex;
 		flex-direction: row;
-		position: absolute;
 		gap: 20px;
 		text-decoration: none;
 		margin-bottom: 20px;
 		align-items: center;
-		top: 25px;
-		left: 25px;
 		z-index: 5;
 
 		img {
@@ -88,20 +96,31 @@ const StyledModal = styled.div`
 
 			button {
 				margin: 10px auto;
-				padding: 20px;
-				width: 25%;
+				padding: 10px;
+				width: 20%;
 				border-radius: 20px;
 				border: none;
-				background-color: #ffffff;
-				color: black;
+				background-color: transparent;
+				border: 2px solid white;
+				color: white;
 				font-size: 20px;
 				font-weight: 700;
 				cursor: pointer;
 				transition: 0.2s ease-in-out;
+				display: flex;
+				align-items: center;
 
 				&:hover {
-					background-color: #783da6;
 					color: white;
+					filter: brightness(0.7);
+				}
+
+				img {
+					filter: brightness(0) invert(1);
+					transition: 0.2s ease-in-out;
+					width: auto;
+					height: 25px;
+					margin-right: 20px;
 				}
 			}
 		}
