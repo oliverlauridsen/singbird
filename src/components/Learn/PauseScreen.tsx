@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import close from "../../img/close.svg";
 import play from "../../img/play.svg";

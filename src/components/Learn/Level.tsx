@@ -5,6 +5,10 @@ import trophy from "../../img/trophy.svg";
 import { useEffect, useState } from "react";
 import PauseScreen from "./PauseScreen";
 
+interface StyledLevelProps {
+	show: boolean;
+}
+
 export default function Level() {
 	const [show, setShow] = useState(false);
 
@@ -20,20 +24,21 @@ export default function Level() {
 	};
 
 	return (
-		<StyledLevel>
-			<img src={linesBackground} alt='' />
-			<div className='logo'>singbird</div>
-			<div className='score'>
-				<img src={trophy} alt='' />
-				Your best: 0
+		<StyledLevel show={show}>
+			<div className='animating-background'>
+				<div className='logo'>singbird</div>
+				<div className='score'>
+					<img src={trophy} alt='' />
+					Your best: 0
+				</div>
+				<PauseScreen show={show} handleClick={resume} />
+				<Player />
 			</div>
-			<PauseScreen show={show} handleClick={resume} />
-			<Player />
 		</StyledLevel>
 	);
 }
 
-const StyledLevel = styled.div`
+const StyledLevel = styled.div<StyledLevelProps>`
 	background: linear-gradient(
 		164.08deg,
 		#474c71 15.21%,
@@ -44,6 +49,28 @@ const StyledLevel = styled.div`
 	overflow: hidden;
 	position: relative;
 	z-index: 1;
+
+	> div {
+		background-image: url(${linesBackground});
+		width: 100%;
+		height: 100%;
+		position: relative;
+		z-index: 2;
+		background-repeat: repeat;
+		background-size: cover;
+		animation: animatedBackground 200s linear infinite;
+		animation-play-state: ${(props) => (props.show ? "paused" : "running")};
+	}
+
+	@keyframes animatedBackground {
+		from {
+			background-position: 0 0;
+		}
+
+		to {
+			background-position: -10000px 0;
+		}
+	}
 
 	.logo {
 		font-size: 30px;
