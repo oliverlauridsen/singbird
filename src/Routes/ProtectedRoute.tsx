@@ -1,12 +1,11 @@
 import { Navigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
-	const auth = true;
-	return auth ? children : <Navigate to='welcome' replace />;
+	const auth = getAuth();
 
-	// USE GOOGLE AUTH HERE
-	// const auth = useAuth();
-	// return auth?.user ? children : <Navigate to='/' replace />;
+	// Sometimes at reload it will go back to welcome screen (we need to persist this state somehow, maybe localStorage)
+	return auth?.currentUser ? children : <Navigate to='/welcome' replace />;
 };
 
 export default ProtectedRoute;

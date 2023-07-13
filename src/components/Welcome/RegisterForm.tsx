@@ -25,7 +25,6 @@ function RegisterForm() {
 
 	useEffect(() => {
 		verifyUserAuth((uid) => {
-			// Use the uid value in this callback function
 			setUserId(uid);
 		});
 	}, [userId]);
