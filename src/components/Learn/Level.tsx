@@ -32,7 +32,7 @@ export default function Level() {
 					Your best: 0
 				</div>
 				<PauseScreen show={show} handleClick={resume} />
-				<Player />
+				<Player show={show} />
 			</div>
 		</StyledLevel>
 	);
@@ -58,7 +58,7 @@ const StyledLevel = styled.div<StyledLevelProps>`
 		z-index: 2;
 		background-repeat: repeat;
 		background-size: cover;
-		animation: animatedBackground 200s linear infinite;
+		animation: animatedBackground 3000s linear infinite;
 		animation-play-state: ${(props) => (props.show ? "paused" : "running")};
 	}
 
@@ -68,7 +68,7 @@ const StyledLevel = styled.div<StyledLevelProps>`
 		}
 
 		to {
-			background-position: -10000px 0;
+			background-position: -100000px 0;
 		}
 	}
 
