@@ -13,7 +13,8 @@ import Learn from "../components/learn/Learn";
 import styled from "styled-components";
 import LevelsMap from "../components/learn/LevelsMap";
 import Level from "../components/learn/Level";
-
+import RegisterScreen from "../components/welcome/RegisterScreen";
+import LoginScreen from "../components/welcome/LoginScreen";
 const StyledGridBox = styled.section`
 	display: grid;
 	grid-template-columns: 15% 65% 20%;
@@ -32,11 +33,11 @@ export const router = createBrowserRouter([
 	},
 	{
 		path: "login",
-		element: <div>login</div>,
+		element: <LoginScreen />,
 	},
 	{
 		path: "register",
-		element: <div>register </div>,
+		element: <RegisterScreen />,
 	},
 	{
 		path: "/",

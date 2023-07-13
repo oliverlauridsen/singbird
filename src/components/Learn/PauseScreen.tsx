@@ -3,6 +3,7 @@ import close from "../../img/close.svg";
 import play from "../../img/play.svg";
 import restart from "../../img/restart.svg";
 import { NavLink } from "react-router-dom";
+
 interface Props {
 	show: boolean;
 	handleClick: () => void;
@@ -11,32 +12,30 @@ interface Props {
 export default function PauseScreen(props: Props) {
 	const { show, handleClick } = props;
 
-	return (
-		show && (
-			<StyledModal>
-				<div className='logo'>singbird</div>
-				<section className='modal-main'>
-					<h1>Pause menu</h1>
-					<div>
-						<button onClick={handleClick}>
-							<img src={play} alt='' />
-							Play
-						</button>
+	return show ? (
+		<StyledModal>
+			<div className='logo'>singbird</div>
+			<section className='modal-main'>
+				<h1>Pause menu</h1>
+				<div>
+					<button onClick={handleClick}>
+						<img src={play} alt='' />
+						Play
+					</button>
+					<button>
+						<img src={restart} alt='' />
+						Restart
+					</button>
+					<NavLink className='back-wrapper' to='/'>
 						<button>
-							<img src={restart} alt='' />
-							Restart
+							<img src={close} alt='' />
+							Quit
 						</button>
-						<NavLink className='back-wrapper' to='/'>
-							<button>
-								<img src={close} alt='' />
-								Quit
-							</button>
-						</NavLink>
-					</div>
-				</section>
-			</StyledModal>
-		)
-	);
+					</NavLink>
+				</div>
+			</section>
+		</StyledModal>
+	) : null;
 }
 
 const StyledModal = styled.div`

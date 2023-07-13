@@ -1,23 +1,15 @@
-import React from "react";
 import styled from "styled-components";
-import singingBird from "../../img/singing-bird.svg";
-import { NavLink } from "react-router-dom";
+import RegisterForm from "./RegisterForm";
+import register from "../../img/register.svg";
 
-function App() {
+export default function RegisterScreen() {
 	return (
 		<Wrapper>
 			<div className='header'>singbird</div>
 			<div className='main-content'>
-				<img src={singingBird} alt='Bird singing' />
-				<h1>
-					Welcome to your <br /> personal pitch tutor
-				</h1>
-				<p>
-					Start guiding your practise towards <br /> becoming a better musician
-				</p>
-				<NavLink className='main-button' to='/start'>
-					START SINGING JOURNEY
-				</NavLink>
+				<img src={register} alt='Register' />
+				<h1> Register your email</h1>
+				<RegisterForm />
 			</div>
 		</Wrapper>
 	);
@@ -78,5 +70,3 @@ const Wrapper = styled.section`
 		}
 	}
 `;
-
-export default App;

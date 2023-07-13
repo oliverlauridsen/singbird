@@ -93,7 +93,7 @@ const Wrapper = styled.section`
 	}
 
 	.main-button {
-		font-weight: 900;
+		font-weight: 800;
 		font-size: 20px;
 		color: white;
 		background-color: #783da6;
